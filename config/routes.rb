@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root to: 'static#welcome'
   resources :reviews
   resources :users
   resources :hospitals
