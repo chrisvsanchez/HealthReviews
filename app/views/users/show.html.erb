@@ -1,0 +1,7 @@
+<h1><%= @user.name %></h1>
+<%= "Username: #{@user.username} " %><br>
+<%= "Hospital Employee? #{@user.is_employee} " %>
+
+<%= form_for @user,method: :delete, url: {action: "destroy"} do |f| %>
+  <%= f.submit "Delete User" %>
+<%end %>

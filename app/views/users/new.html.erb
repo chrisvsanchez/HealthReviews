@@ -1,0 +1,23 @@
+<h1>Register</h1>
+
+<%= form_for @user do |f| %>
+<%=f.label :name%>
+<%= f.text_field :name %><br>
+
+<%= f.label :username %>
+<%= f.text_field :username %><br>
+
+<%= f.label :password %>
+<%= f.text_field :password %><br>
+
+<%= f.label "Please confirm password" %>
+<%= f.text_field :password %><br>
+
+<%= f.label "Are you an employee?" %>
+<%= f.label "YES" %>
+<%= f.check_box :is_employee %><br>
+
+<%= f.label "If you are an employee please choose a hospital" %><br>
+<%= f.collection_select :hospitals_id, Hospital.all, :id, :name%>
+<%= f.submit "Register" %>
+<% end %>
