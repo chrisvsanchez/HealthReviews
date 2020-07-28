@@ -3,4 +3,8 @@ class Review < ApplicationRecord
   belongs_to :hospital
   belongs_to :healthsystem
  
+
+  def 
+
+  end
 end

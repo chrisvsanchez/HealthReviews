@@ -1,0 +1,11 @@
+<h1>All Reviews</h1>
+<% @reviews.each do |r|  %>
+<hr>
+   Title: <%= r.title %><br>
+    Review: <%= r.content %><br>
+   Rating: <%= r.rating %><br>
+    Created by:<%= r.user.name %><br>
+    Hospital:<%= r.hospital.name %><br> 
+<hr>
+
+<%end %>

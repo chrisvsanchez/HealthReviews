@@ -1,0 +1,18 @@
+<h1>Create Review</h1>
+
+<%= form_for @review do |f| %>
+<%=f.label :title%>
+<%= f.text_field :title %><br>
+
+<%= f.label :content %>
+<%= f.text_area :content %><br>
+
+<%= f.label :rating %>
+<%= f.number_field :rating %><br>
+
+<%= f.label "Which hospital are you reviewing?" %>
+<%= f.collection_select :hospital_id, Hospital.all, :id, :name%><br>
+<%= f.label "Is your hospital part of a healthcare system?" %>
+<%= f.collection_select :healthsystem_id, Healthsystem.all, :id, :name%><br><br>
+<%= f.submit "Submit Review" %>
+<% end %>
