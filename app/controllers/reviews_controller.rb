@@ -1,7 +1,7 @@
 class ReviewsController < ApplicationController
     before_action :find_review, only:[:show, :update, :edit, :destroy]
     def index
-        @reviews = Review.all
+        @reviews = list_by
     end
 
     def show 
@@ -12,7 +12,7 @@ class ReviewsController < ApplicationController
     end
 
     def create
-       @review = Review.create(review_params)
+       @review.create(review_params)
         redirect_to @review
 
     end
@@ -20,7 +20,8 @@ class ReviewsController < ApplicationController
 
     end
     def update
-        @review = Review.update(review_params)
+       
+        @review.update(review_params)
         redirect_to review_path(@review)
     end
 
@@ -29,6 +30,14 @@ class ReviewsController < ApplicationController
     end
 
     private 
+    def list_by
+        if params[:sort_by_rating]
+            @reviews = Review.sort_by_rating
+        else 
+            @reviews = Review.all
+        end
+    end
+
     def find_review
         @review = Review.find(params[:id])
     end
