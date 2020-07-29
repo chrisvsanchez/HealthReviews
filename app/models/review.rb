@@ -4,7 +4,5 @@ class Review < ApplicationRecord
   belongs_to :healthsystem
  
 
-  def 
 
-  end
 end

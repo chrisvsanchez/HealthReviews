@@ -12,7 +12,7 @@ class ReviewsController < ApplicationController
     end
 
     def create
-       @review = Review.create(review_params)
+       @review.create(review_params)
         redirect_to @review
 
     end
@@ -20,7 +20,8 @@ class ReviewsController < ApplicationController
 
     end
     def update
-        @review = Review.update(review_params)
+       
+        @review.update(review_params)
         redirect_to review_path(@review)
     end
 

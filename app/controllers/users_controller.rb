@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-    before_action :find_user, only:[:show, :update, :edit, :destroy]
+    before_action :find_user, only:[:show, :edit,:update,  :destroy]
+
     def index
         @users = User.all
     end
@@ -11,17 +12,17 @@ class UsersController < ApplicationController
         @user = User.new
     end
 
+    def edit 
+        
+    end
     def create
        @user = User.create(user_params)
         redirect_to @user
 
     end
-    def edit 
-
-    end
     def update
-        @user = User.update(user_params)
-        redirect_to user_path(@user)
+        @user.update(user_params)
+        redirect_to user_path(@user)    
     end
 
     def destroy
@@ -36,5 +37,5 @@ class UsersController < ApplicationController
     def user_params
         params.require(:user).permit(:name, :username, :password, :is_employee, :hospitals_id)
     end
-    
+
 end
