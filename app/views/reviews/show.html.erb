@@ -1,3 +1,4 @@
-<%= @review.title %>
-<%= @review.content %>
-<%= @review.rating %>
+<h1>Review Title<%= @review.title %></h1>
+<h2>Content:<%= @review.content %></h2>
+<h3>Rating:<%= @review.rating %></h3>
+<%= button_to "Edit Review", edit_review_path(@review)%>

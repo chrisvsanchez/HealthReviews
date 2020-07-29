@@ -1,11 +1,12 @@
-<h1><%= @user.name %></h1>
-<%= "Username: #{@user.username} " %><br>
+<h1>Welcome <%= @user.name %>!</h1>
+<h3><%= "Username: #{@user.username} " %></h3>
+<h3><%= "Hospital Employee? #{@user.is_employee}"%></h3>
 <%= form_for @user,method: :delete, url: {action: "destroy"} do |f| %>
-  <%= f.submit "Delete User" %>
-<%= "Hospital Employee? #{@user.is_employee} " %>
-<h3><%="#{@user.name} Reviews"%></h3>
-    <ul>
+  <%= f.submit "Delete User" %><br>
+  <hr>
+<h3><%="#{@user.name} has #{@user.reviews.count} Reviews"%></h3>
     <%@user.reviews.each do |r|%>
+    <ul>
     <li><%= r.title %></li>
     <%= r.content %><br>
     <hr>
