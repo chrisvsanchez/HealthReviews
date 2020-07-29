@@ -1,15 +1,34 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>HealthyReview</title>
+    <title>Healthapp</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
-  <body>
-    <%= yield %>
+  <body class="body">
+    <header class="menu">
+        <div class="container">
+        
+          <nav class="right">
+            <span class="item">
+              <% if @current_user %>
+                Welcome, <%= @current_user.username %>!
+              <% else %>
+               <nav>
+                <%= link_to "Sign Up", "/signup" %>
+                <%= link_to "Log in", "/login" %>
+                <%= link_to "Log out", "/logout", method: :delete %>
+                  </nav>
+              <% end %>
+            </span>
+          </nav>
+        </div>
+      </header>
+    <main>
+      <%= yield %>
+    </main>
   </body>
 </html>

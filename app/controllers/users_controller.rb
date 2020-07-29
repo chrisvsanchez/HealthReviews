@@ -12,10 +12,13 @@ class UsersController < ApplicationController
     end
 
     def create
-       @user = User.create(user_params)
-        redirect_to @user
-
+       user = User.create(user_params)
+        # redirect_to @user
+       session[:user_id] = user.id
+       redirect_to user_path(@user)
     end
+
+
     def edit 
 
     end
@@ -28,13 +31,13 @@ class UsersController < ApplicationController
         @user.destroy
     end
 
-    private 
+    private
     def find_user
         @user = User.find(params[:id])
     end
 
     def user_params
-        params.require(:user).permit(:name, :username, :password, :is_employee, :hospitals_id)
+        params.require(:user).permit(:name, :username, :password, :is_employee)
     end
     
 end
