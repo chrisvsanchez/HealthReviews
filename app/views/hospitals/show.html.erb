@@ -1,0 +1,15 @@
+<h1><%= @hospital.name %></h1>
+<h3><strong>Address: </strong> <%=@hospital.address %></h3>
+<h3><strong>Specialty: </strong><%=@hospital.speciality %></h3><br>
+
+<%@hospital.reviews.each do |r| %>
+<hr>
+<ul>
+<li><strong>Title: </strong><%= r.title %></li><br>
+    <strong>Review: </strong><%= r.content %><br>
+    <strong>Created by: </strong><%= r.user.name%><br>
+    <strong>Created on: </strong><%= r.created_at.to_date %><br>
+
+</ul>
+<hr>
+<% end %>

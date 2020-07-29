@@ -13,146 +13,33 @@ User.destroy_all
 Review.destroy_all
 
 puts "Creating Healthsystem seed"
-
-Healthsystem.create([
-    {
-       name: Faker::Name.name
-    },
-    {
-       name: Faker::Name.name
-    },
-    {
-       name: Faker::Name.name
-    },
-    {
-        name: Faker::Name.name
-    }
-])
+10.times do 
+Healthsystem.create(name: Faker::Name.unique.name+ " Health system")
+end
 puts " Healthsystem seed complete"
-puts "Creating locations"
 
-Location.create([
-    {
-        state:Faker::Address.state,
-        city:Faker::Address.city,
-        zip:Faker::Address.zip_code,
-        healthsystem_id: Healthsystem.all.sample.id
-    },
-    {
-        state:Faker::Address.state,
-        city:Faker::Address.city,
-        zip:Faker::Address.zip_code,
-        healthsystem_id: Healthsystem.all.sample.id
-    },
-    {
-        state:Faker::Address.state,
-        city:Faker::Address.city,
-        zip:Faker::Address.zip_code,
-        healthsystem_id: Healthsystem.all.sample.id
-    },
-    {
-        state:Faker::Address.state,
-        city:Faker::Address.city,
-        zip:Faker::Address.zip_code,
-        healthsystem_id: Healthsystem.all.sample.id
-    }
-])
+puts "Creating locations"
+10.times do 
+Location.create(state:Faker::Address.state,city:Faker::Address.city,zip:Faker::Address.zip_code,healthsystem_id: Healthsystem.all.sample.id)
+end
 puts "Location complete"
 
 puts "Creating Hospitals"
-Hospital.create([
-    {
-        name:Faker::Company.industry ,
-        address:Faker::Address.street_address,
-        speciality:"Surgery",
-    location_id:Location.all.sample.id
-
-    },
-    {
-    name:Faker::Company.industry, 
-    address:Faker::Address.street_address,
-    speciality:"Psych",
-    location_id:Location.all.sample.id
-
-    },
-    {
-    name: Faker::Company.industry ,
-    address:Faker::Address.street_address,
-    speciality: "Psych",
-    location_id: Location.all.sample.id
-
-    },
-    {
-    name: Faker::Company.industry,
-    address:Faker::Address.street_address,
-    speciality: "Cardiac Surgery",
-    location_id: Location.all.sample.id
-
-    }
-])
-
+15.times do 
+Hospital.create(name:Faker::Name.unique.name+" Hospital",address:Faker::Address.street_address,speciality:"Surgery",location_id:Location.all.sample.id)
+end
 puts " Hospital seed complete"
+
+
 puts "Creating Users "
-User.create([
-    {
-        name: Faker::Name.name,
-        username: Faker::Games::Pokemon.name,
-        password: "123",
-        is_employee: true
-    },
-    {
-        name: Faker::Name.name,
-        username: Faker::Games::Pokemon.name,
-        password: "123",
-        is_employee: true
-    },
-    {
-        name: Faker::Name.name,
-        username: Faker::Games::Pokemon.name,
-        password: "123",
-        is_employee: false
-    },
-    {
-        name: Faker::Name.name,
-        username: Faker::Games::Pokemon.name,
-        password: "123",
-        is_employee: false
-    }
-])
+14.times do 
+User.create(name: Faker::Name.unique.name,username: Faker::Games::Pokemon.unique.name,password: "123",is_employee: Faker::Boolean.boolean)
+end
 puts " Users seed complete"
+
 puts "Creating Reviews "
-Review.create([
-    {
-title:Faker::Book.title,
-content:Faker::Lorem.sentence(word_count: 3, supplemental: true, random_words_to_add: 4),
-rating:rand(0..10),
-user_id: User.all.sample.id,
-hospital_id: Hospital.all.sample.id,
-healthsystem_id: Healthsystem.all.sample.id
-    },
-    {
-title:Faker::Book.title,
-content:Faker::Lorem.sentence(word_count: 3, supplemental: true, random_words_to_add: 4),
-rating:rand(0..10),
-user_id: User.all.sample.id,
-hospital_id: Hospital.all.sample.id,
-healthsystem_id: Healthsystem.all.sample.id
-    },
-    {
-title:Faker::Book.title,
-content:Faker::Lorem.sentence(word_count: 3, supplemental: true, random_words_to_add: 4),
-rating:rand(0..10),
-user_id: User.all.sample.id,
-hospital_id: Hospital.all.sample.id,
-healthsystem_id: Healthsystem.all.sample.id
-    },
-    {
-        title:Faker::Book.title,
-        content:Faker::Lorem.sentence(word_count: 3, supplemental: true, random_words_to_add: 4),
-        rating:rand(0..10),
-        user_id: User.all.sample.id,
-        hospital_id: Hospital.all.sample.id,
-        healthsystem_id: Healthsystem.all.sample.id
-    }
-])
+20.times do 
+Review.create(
+title:Faker::Book.title,content:Faker::Lorem.paragraph,rating:rand(0..10),user_id: User.all.sample.id,hospital_id: Hospital.all.sample.id,healthsystem_id: Healthsystem.all.sample.id)
+end
 puts "  Review seed complete"

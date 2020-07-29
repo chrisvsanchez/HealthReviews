@@ -1,0 +1,6 @@
+<h1> All Hospitals </h1>
+<% @hospitals.each do |h| %>
+<ul>
+<li><%= link_to h.name, h %></li>
+</ul>
+<%end%>

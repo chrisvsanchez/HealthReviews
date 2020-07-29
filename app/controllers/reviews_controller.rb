@@ -1,7 +1,7 @@
 class ReviewsController < ApplicationController
     before_action :find_review, only:[:show, :update, :edit, :destroy]
     def index
-        @reviews = Review.all
+        @reviews = list_by
     end
 
     def show 
@@ -30,6 +30,14 @@ class ReviewsController < ApplicationController
     end
 
     private 
+    def list_by
+        if params[:sort_by_rating]
+            @reviews = Review.sort_by_rating
+        else 
+            @reviews = Review.all
+        end
+    end
+
     def find_review
         @review = Review.find(params[:id])
     end
