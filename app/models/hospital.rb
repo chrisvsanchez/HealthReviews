@@ -14,11 +14,11 @@ class Hospital < ApplicationRecord
     {name: hos["facility_name"], address: JSON.parse(hos["location_1"]["human_address"]),speciality: hos["facility_type"]}}
 
     hashed_hospitals.each do |hos| 
-      byebug
+    
       final_address = (hos[:address]["address"] + " " + hos[:address]["city"]+ ", " +hos[:address]["state"] + ", " + hos[:address]["zip"])
   
       local_id = Location.create(state: hos[:address]["state"], city: hos[:address]["city"],zip: hos[:address]["zip"], healthsystem_id: nil)
-      byebug
+     
       # Hospital.hospital_info.create(name: hos[:name], :address final_address, :speciality hos[:speciality], :location_id local_id)
   
     end

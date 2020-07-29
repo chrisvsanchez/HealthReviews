@@ -17,17 +17,19 @@
               <% if @current_user %>
                 Welcome, <%= @current_user.username %>!
               <% else %>
-               <nav>
-                <%= link_to "Sign Up", "/signup" %>
-                <%= link_to "Log in", "/login" %>
-                <%= link_to "Log out", "/logout", method: :delete %>
+               <nav >
                   </nav>
               <% end %>
             </span>
           </nav>
         </div>
       </header>
-    <main>
+    <main >
+    <div id = "center_login">
+                <%= link_to "Sign Up", "/signup" %>
+                <%= link_to "Log in", "/login" %>
+                <%= link_to "Log out", "/logout", method: :delete %>
+                </div>
       <%= yield %>
     </main>
   </body>

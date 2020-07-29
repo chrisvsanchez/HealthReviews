@@ -24,7 +24,7 @@ Location.create(state:Faker::Address.state,city:Faker::Address.city,zip:Faker::A
 end
 puts "Location complete"
 
-Hospital.hospital_info
+
 puts "Creating Hospitals"
 15.times do 
 Hospital.create(name:Faker::Name.unique.name+" Hospital",address:Faker::Address.street_address,speciality:"Surgery",location_id:Location.all.sample.id)
@@ -34,7 +34,7 @@ puts " Hospital seed complete"
 
 puts "Creating Users "
 14.times do 
-User.create(name: Faker::Name.unique.name,username: Faker::Games::Pokemon.unique.name,password: "123",is_employee: Faker::Boolean.boolean)
+User.create(name: Faker::Name.unique.name,username: Faker::Games::Pokemon.unique.name,password_digest: "123",is_employee: Faker::Boolean.boolean)
 end
 puts " Users seed complete"
 

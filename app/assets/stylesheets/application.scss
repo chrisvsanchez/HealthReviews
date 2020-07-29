@@ -12,8 +12,17 @@
 
 .home-video-wrapper {
 height:100vh;
+display: flex;
 }
 
 h1.home {
   color: white;
+}
+
+div.center_login{
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  text-align: center;
+  font-size: 18px;
 }
