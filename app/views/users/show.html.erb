@@ -4,7 +4,7 @@
 <%= form_for @user,method: :delete, url: {action: "destroy"} do |f| %>
   <%= f.submit "Delete User" %><br><br>
   <%end%>
-  <%= button_to "Edit User", edit_user_path(@user), :method => "get" %>
+
   <hr>
 <h3><%="#{@user.name} has #{@user.reviews.count} Reviews"%></h3>
     <%@user.reviews.each do |r|%>
@@ -14,6 +14,6 @@
     <%= button_to "Edit Review", edit_review_path(r), :method => "get" %>
     </ul>
     <hr>
-    <%end %>
+    <%end%>
  
 

@@ -8,19 +8,17 @@ class SessionsController < ActionController::Base
 
 
     def create
-
-      user = User.find_by(username: params[:session][:username])
-      # compare their password to whatever password was passed in the form
-      if user.authenticate(params[:session][:password])
-        # if the password is correct, save the user_id to the session
-            session[:user_id] = user.id 
-            redirect_to root_path
-        else
-            flash[:errors] = user.errors.full_messages
-            redirect_to root_path
-    end
-end
+        @user = User.find_by(username: params[:username])
     
+        if @user && @user.authenticate(params[:password])
+            session[:user_id] = @user.id
+            redirect_to @user
+        else
+            flash.now[:alert] = "Username or password is incorrect"
+            render action: "new"
+        end
+    end
+
     def destroy
         # byebug
         session.delete(:user_id)
