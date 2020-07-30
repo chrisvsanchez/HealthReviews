@@ -5,9 +5,9 @@
 <%@hospital.reviews.each do |r| %>
 <hr>
 <ul>
-<li><strong>Title: </strong><%= r.title %></li><br>
+<li><strong>Title: </strong><%= link_to r.title, r %></li><br>
     <strong>Review: </strong><%= r.content %><br>
-    <strong>Created by: </strong><%= r.user.name%><br>
+    <strong>Created by: </strong><%= link_to r.user.name, r.user%><br>
     <strong>Created on: </strong><%= r.created_at.strftime("%B %d, %Y") %><br>
 
 </ul>
