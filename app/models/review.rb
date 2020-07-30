@@ -9,4 +9,6 @@ def self.sort_by_rating
       review.rating
     end.reverse
 end
+
+
 end
