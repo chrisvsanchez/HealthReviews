@@ -8,7 +8,9 @@
  top: 0;
  z-index: -2;
 }
-
+body{
+  background-color:#34b1eb;
+}
 
 .home-video-wrapper {
 height:100vh;
@@ -19,7 +21,7 @@ h1.home {
   color: white;
 }
 
-div.center_login{
+div#center_login{
   position: absolute;
   top: 50%;
   width: 100%;

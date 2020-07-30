@@ -17,11 +17,10 @@ class Hospital < ApplicationRecord
     
       final_address = (hos[:address]["address"] + " " + hos[:address]["city"]+ ", " +hos[:address]["state"] + ", " + hos[:address]["zip"])
   
-      local_id = Location.create(state: hos[:address]["state"], city: hos[:address]["city"],zip: hos[:address]["zip"], healthsystem_id: nil)
-     
-      # Hospital.hospital_info.create(name: hos[:name], :address final_address, :speciality hos[:speciality], :location_id local_id)
+      local_id = Location.create(state: hos[:address]["state"], city: hos[:address]["city"],zip: hos[:address]["zip"], healthsystem_id: Healthsystem.all.sample.id)
   
+      Hospital.create(name: hos[:name], address: final_address, speciality: hos[:speciality], location_id: local_id.id)
     end
-Hospital.hospital_info 
-end
+
+  end
 end

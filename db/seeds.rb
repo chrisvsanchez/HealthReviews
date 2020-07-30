@@ -26,9 +26,11 @@ puts "Location complete"
 
 
 puts "Creating Hospitals"
-15.times do 
-Hospital.create(name:Faker::Name.unique.name+" Hospital",address:Faker::Address.street_address,speciality:"Surgery",location_id:Location.all.sample.id)
-end
+# 15.times do 
+# Hospital.create(name:Faker::Name.unique.name+" Hospital",address:Faker::Address.street_address,speciality:"Surgery",location_id:Location.all.sample.id)
+# end
+Hospital.hospital_info
+
 puts " Hospital seed complete"
 
 
