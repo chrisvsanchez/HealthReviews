@@ -7,13 +7,19 @@
 
   <hr>
 <h3><%="#{@user.name} has #{@user.reviews.count} Reviews"%></h3>
+<%= button_to "Write a Review",new_review_path, :method => "get" %>
     <%@user.reviews.each do |r|%>
     <ul>
     <li><%= r.title %></li>
     <%= r.content %><br>
+    <% if @current_user %>
     <%= button_to "Edit Review", edit_review_path(r), :method => "get" %>
+    <% else%>
+     <%=link_to "sign up", "/signup" %>
+     <%end%>
     </ul>
     <hr>
     <%end%>
  
+
 
