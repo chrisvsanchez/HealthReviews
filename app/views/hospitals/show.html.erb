@@ -8,7 +8,7 @@
 <li><strong>Title: </strong><%= r.title %></li><br>
     <strong>Review: </strong><%= r.content %><br>
     <strong>Created by: </strong><%= r.user.name%><br>
-    <strong>Created on: </strong><%= r.created_at.to_date %><br>
+    <strong>Created on: </strong><%= r.created_at.strftime("%B %d, %Y") %><br>
 
 </ul>
 <hr>
