@@ -1,12 +1,13 @@
 <h1>All Reviews</h1>
 <%= button_to "Sort by Rating", reviews_path, method: :get, params: {sort_by_rating: true} %>
+<%= button_to "Sort by Hospital Name", reviews_path, method: :get, params: {sort_by_alpha: true} %>
 <% @reviews.each do |r|  %>
 <hr>
-   Title: <%= r.title %><br>
+    <h4>Hospital:<%= link_to r.hospital.name, r.hospital %></h4>
+   Title: <%= link_to r.title, r %><br>
     Review: <%= r.content %><br>
    Rating: <%= r.rating %><br>
-    Created by:<%= r.user.name %><br>
-    Hospital:<%= r.hospital.name %><br> 
+    Created by:<%= link_to r.user.name, r.user %><br>
 <hr>
 
 <%end %>

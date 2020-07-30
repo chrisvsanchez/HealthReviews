@@ -1,7 +1,7 @@
 <h1><%= @hospital.name %></h1>
 <h3><strong>Address: </strong> <%=@hospital.address %></h3>
 <h3><strong>Specialty: </strong><%=@hospital.speciality %></h3><br>
-
+<h2><%="#{@hospital.reviews.count} Reviews"%></h2>
 <%@hospital.reviews.each do |r| %>
 <hr>
 <ul>

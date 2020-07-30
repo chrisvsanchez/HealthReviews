@@ -9,12 +9,12 @@ class SessionsController < ActionController::Base
 
     def create
         @user = User.find_by(username: params[:username])
-        # return head(:forbidden) unless @user.authenticate(params[:password])
+    
         if @user && @user.authenticate(params[:password])
             session[:user_id] = @user.id
             redirect_to @user
         else
-            flash.now[:alert] = "Username or password is invalid"
+            flash.now[:alert] = "Username or password is incorrect"
             render action: "new"
         end
     end

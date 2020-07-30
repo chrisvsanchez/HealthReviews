@@ -8,10 +8,13 @@
  top: 0;
  z-index: -2;
 }
+body{
+  background-color:#34b1eb;
+}
 
 .home-video-wrapper {
 height:100vh;
-display: flex;
+// display: flex;
 }
 
 h1.home {

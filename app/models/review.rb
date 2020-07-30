@@ -9,6 +9,11 @@ def self.sort_by_rating
       review.rating
     end.reverse
 end
+def self.sort_by_alpha
+    Review.all.sort_by do |review|
+      review.hospital.name
+    end
+end
 
 
 end

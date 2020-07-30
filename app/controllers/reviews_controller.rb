@@ -33,6 +33,8 @@ class ReviewsController < ApplicationController
     def list_by
         if params[:sort_by_rating]
             @reviews = Review.sort_by_rating
+        elsif params[:sort_by_alpha]
+            @reviews = Review.sort_by_alpha
         else 
             @reviews = Review.all
         end
