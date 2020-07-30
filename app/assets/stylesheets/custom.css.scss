@@ -1,0 +1,33 @@
+// @import "bootstrap-sprockets";
+@import "bootstrap";
+
+.navbar  {
+
+    background-color: black !important;
+}
+
+.nav-link {
+
+    color: white !important;
+}
+
+#logo {
+
+    float: left;
+    font-size: 1.2cm;
+    color: #fff;
+    text-transform: uppercase;
+   letter-spacing: -1px;
+   font-weight: bold;
+
+}
+
+#logo {
+
+    float: left;
+    font-size: 1.3cm;
+    color:#fff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: bold;
+}

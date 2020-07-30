@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :healthsystems
   patch '/sessions/reset', to: 'sessions#reset_view_tracker'
   get '/signup', to: 'users#new', as: "signup"
+  post 'users', to: 'users#create'
   get '/login', to: 'sessions#new', as: 'login'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy', as: 'logout'

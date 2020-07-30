@@ -25,8 +25,10 @@ gem 'faker', git: 'https://github.com/stympy/faker'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 gem "rest-client"
+gem 'bootstrap', '~> 4.1.3'
 gem 'jquery-rails'
 gem "twitter-bootstrap-rails"
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 

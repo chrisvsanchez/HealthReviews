@@ -1,7 +1,15 @@
-<h1>Welcome to whhatmyhealth!</h1>
-<p>Giving you deets of the docs</p>
 
-<div class="home-video-wrapper">
-  <%= video_tag "video.mp4", autoplay: :autoplay, loop: :loop, mute: :mute, class: "home_video" %>
-   <h1 class="home"> Welcome to Paradise</h1>
+<div class="container" id="home-container">
 </div>
+<header>
+<div class="home-video-wrapper">
+ <h1 class="home">
+  <%= video_tag "video.mp4", autoplay: :autoplay, loop: :loop, mute: :mute, class: "home_video" %>
+</div>
+</header>
+
+<footer id="sticky-footer" class="py-4 bg-dark text-white">
+<div class="container text-center">
+  <small>Copyright &copy; <%= link_to "Health Review","https://flatironschool.com", class: "text-white"%></small>
+  </div>
+  </footer>
