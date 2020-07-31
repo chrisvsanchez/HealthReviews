@@ -14,5 +14,5 @@
 <%= f.collection_select :hospital_id, Hospital.all, :id, :name%><br>
 <%= f.label "Is your hospital part of a healthcare system?" %>
 <%= f.collection_select :healthsystem_id, Healthsystem.all, :id, :name%><br><br>
-<%= f.submit "Edit Review" %>
+<%= f.submit "Save Edit" %>
 <% end %>

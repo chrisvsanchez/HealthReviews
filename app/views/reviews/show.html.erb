@@ -1,4 +1,26 @@
-<h1>Review Title<%= @review.title %></h1>
-<h2>Content:<%= @review.content %></h2>
-<h3>Rating:<%= @review.rating %></h3>
-<%= button_to "Edit Review", edit_review_path(@review)%>
+<div id="page-content">
+ 
+
+  <div class="container">
+    <div class="row justify-content-md-center">
+      <div class="col-8 mt-4">
+        <div class="card text-center shadow mb-5 bg-white rounded">
+          <div class="card-header font-italic">
+            <%="By #{@review.user.name}"%>
+          </div>
+          <div class="card-body">
+          <h2 class="text-center mt-4"><%= @review.title %></h2>
+           <h4 class="text-center mt-4"><%= @review.user.name%></h4>
+            <div class="card-text text-left"><%= simple_format(@review.content) %></div>
+            <%= link_to "Edit", edit_review_path(@review), class: "btn btn-outline-info" %>
+            <%= link_to "Delete", review_path(@review), class: "btn btn-outline-danger", method: :delete, data: {confirm: "Are you sure?"} %>
+          </div>
+          <div class="card-footer text-muted">
+            <small>Created <%= time_ago_in_words(@review.created_at) %> ago, 
+            edited <%= time_ago_in_words(@review.updated_at) %> ago</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
