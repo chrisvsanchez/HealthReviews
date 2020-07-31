@@ -1,15 +1,29 @@
-<h1>All Reviews</h1>
-<%= button_to "Sort by Rating", reviews_path, method: :get, params: {sort_by_rating: true} %>
-<%= button_to "Sort by Hospital Name", reviews_path, method: :get, params: {sort_by_alpha: true} %>
-<% @reviews.each do |r|  %>
-<hr>
-    <h4>Hospital:<%= link_to r.hospital.name, r.hospital %></h4>
-  <strong> Title: </strong><%= link_to r.title, r %><br>
-   <strong> Review: </strong><%= r.content %><br>
-   <strong>Rating:</strong><%= r.rating %><br>
-    <strong>Created by: </strong><%= link_to r.user.name, r.user %><br>
-    <strong>Created on: </strong><%= r.created_at.strftime("%B %d, %Y") %><br>
+<h1 class="text-center mt-4">Listing all reviews</h1>
+<div class="container">
+<% @reviews.each do |review| %>
 
-<hr>
+<div id="page-content">
+ 
+  <div class="container">
+    <div class="row justify-content-md-center">
+      <div class="col-8 mt-4">
+        <div class="card text-center shadow mb-5 bg-white rounded">
+          <div class="card-header font-italic">
+            <%="By #{review.user.name}"%>
+          </div>
+          <div class="card-body">
+          <h2 class="text-center mt-4"><%= review.title %></h2>
+           <h4 class="text-center mt-4"><%= review.user.name%></h4>
+            <div class="card-text text-left"><%= simple_format(review.content) %></div>
+            <%= link_to "Edit", edit_review_path(review), class: "btn btn-outline-info" %>
+            <%= link_to "Delete", review_path(review), class: "btn btn-outline-danger", method: :delete, data: {confirm: "Are you sure?"} %>
+          </div>
+          <div class="card-footer text-muted">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-<%end %>
+ <%end%>

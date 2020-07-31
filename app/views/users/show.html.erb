@@ -1,25 +1,36 @@
 <h1>Welcome <%= @user.name %>!</h1>
-<h3><%= "Username: #{@user.username} " %></h3>
-<h3><%= "Hospital Employee? #{@user.is_employee}"%></h3>
+
+ 
 <%= form_for @user,method: :delete, url: {action: "destroy"} do |f| %>
   <%= f.submit "Delete User" %><br><br>
   <%end%>
+<a href="/reviews/new" class="btn btn-info" role="button">Write a review</a>
+<h1 class="text-center mt-4"><%="#{@user.name} has #{@user.reviews.count} Reviews"%></h1>
+<div class="container">
+<% @user.reviews.each do |review| %>
 
-  <hr>
-<h3><%="#{@user.name} has #{@user.reviews.count} Reviews"%></h3>
-<%= button_to "Write a Review",new_review_path, :method => "get" %>
-    <%@user.reviews.each do |r|%>
-    <ul>
-    <li><%= r.title %></li>
-    <%= r.content %><br>
-    <% if @current_user %>
-    <%= button_to "Edit Review", edit_review_path(r), :method => "get" %>
-    <% else%>
-     <%=link_to "sign up", "/signup" %>
-     <%end%>
-    </ul>
-    <hr>
-    <%end%>
+<div id="page-content">
  
+  <div class="container">
+    <div class="row justify-content-md-center">
+      <div class="col-8 mt-4">
+        <div class="card text-center shadow mb-5 bg-white rounded">
+          <div class="card-header font-italic">
+            <%="By #{review.user.name}"%>
+          </div>
+          <div class="card-body">
+          <h2 class="text-center mt-4"><%= review.title %></h2>
+           <h4 class="text-center mt-4"><%= review.user.name%></h4>
+            <div class="card-text text-left"><%= simple_format(review.content) %></div>
+            <%= link_to "Edit", edit_review_path(review), class: "btn btn-outline-info" %>
+            <%= link_to "Delete", review_path(review), class: "btn btn-outline-danger", method: :delete, data: {confirm: "Are you sure?"} %>
+          </div>
+          <div class="card-footer text-muted">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-
+ <%end%>
